@@ -88,3 +88,6 @@ typings/
 
 # build directory by vue-cli
 dist/
+
+#Electron-builder output
+/dist_electron
