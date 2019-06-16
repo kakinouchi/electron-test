@@ -14,5 +14,8 @@
     "@vue/cli": "^3.8.4",
     "@vue/cli-service": "^3.8.4",
     "vue-template-compiler": "^2.6.10"
+  },
+  "dependencies": {
+    "vue": "^2.6.10"
   }
 }
