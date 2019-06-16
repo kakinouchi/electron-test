@@ -5,7 +5,7 @@ import {
   createProtocol,
   installVueDevtools
 } from "vue-cli-plugin-electron-builder/lib";
-const serialPort = require("serialport");
+require("./serial-communication");
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -39,17 +39,6 @@ function createWindow() {
 
   win.on("closed", () => {
     win = null;
-  });
-  serialPort.list(function(err, ports) {
-    if (err) {
-      console.log("port error has been occured.");
-    }
-    ports.forEach(function(port) {
-      // Dongle Part
-      if (port.productId === "6001") {
-        console.log(ports);
-      }
-    });
   });
 }
 

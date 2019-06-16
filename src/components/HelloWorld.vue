@@ -1,6 +1,9 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>{{ msg }}</h1>ドングルを接続して、確認ボタンを押してください
+    <span id="icon-placeholder-dongle"></span>
+    <br>
+    <button id="confirm-dongle-button" @click="checkDongle()">確認</button>
     <p>
       For a guide and recipes on how to configure / customize this project,
       <br>check out the
@@ -71,10 +74,16 @@
 </template>
 
 <script>
+const { ipcRenderer } = require("electron");
 export default {
   name: "HelloWorld",
   props: {
     msg: String
+  },
+  methods: {
+    checkDongle: () => {
+      alert(ipcRenderer.sendSync("confirm-connection", ""));
+    }
   }
 };
 </script>
